@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body style="background-color: #ff4363; color: yellow;">
+    {% if messages %} {% include 'message.html' %} {% endif %}
+    <br><br>
+    <p style="font-size: 40px;">Hello {{ user.first_name }}</p> <br>
+    <img src="{{ MEDIA_URL }}{{ user.picture.url }}" style="border-radius: 10px" height="250px" alt="{{ user }}'s image">
+    <ul style="font-size: 20px; list-style-type: none;">
+        <li>First name: {{ user.first_name }}</li>
+        <li>Last name: {{ user.last_name }}</li>
+        <li>Username: {{ user.username }}</li>
+        <li>Email: {{ user.email }}</li>
+        <li>Address: {{ user.address }}</li>
+        <li>Type: {{ user.get_type_display }}</li>
+        <li>For logout: <a href="{% url 'logout' %}" style="color: yellow; font-size: 20px">click here</a></li>
+    </ul>
+</body>
+</html>

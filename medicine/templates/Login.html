@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<title>Login</title>
+</head>
+<body>
+	{% if messages %} {% include 'message.html' %} {% endif %}
+
+	<h2>Sign in/up Form</h2>
+	<div class="container" id="container">
+		<div class="form-container sign-up-container">
+			<form method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				<h1>Create Account</h1>
+				
+				<table>
+					<tr>
+						<td><label for="p">Patient &nbsp;&nbsp;&nbsp;</label></td>
+						<td><label for="d">Doctor</label></td>
+					</tr>
+					<tr>
+						<td><input type="radio" id="p" name="type" value="P" required></td>
+						<td><input type="radio" id="d" name="type" value="D" required></td>
+					</tr>
+				</table>
+				<input type="text" name="first_name", placeholder="First name" required/>
+				<input type="text" name="last_name", placeholder="Last name" required/>
+				<input type="email" name='email' placeholder="Email" required/>
+				<input type="text" name="username" placeholder="Username" required/>
+				<input type="password" name="password1" placeholder="Password" required/>
+				<input type="password" name="password2" placeholder="Confirm Password" required/>
+				<input type="file" name="image" accept="image/png, image/gif, image/jpeg"/>
+				<input type="text" name="address" placeholder="Address(line1, city, state, pincode)" required/>
+
+				<button name="signup" type="submit">Sign Up</button>
+			</form>
+		</div>
+		<div class="form-container sign-in-container">
+			<form method="POST">
+				{% csrf_token %}
+				<h1>Sign in</h1>
+				<input type="text" name="username" placeholder="Username" required/>
+				<input type="password" name="password" placeholder="Password" required/>
+				<button name="signin" type="submit">Sign In</button>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Welcome to our sign up page</h1>
+					<p>if you have account please click sign in button</p>
+					<button class="ghost" id="signIn">Sign In</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Welcome to our sign in page</h1>
+					<p>if you don't have account please click sign up button</p>
+					<button class="ghost" id="signUp">Sign Up</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

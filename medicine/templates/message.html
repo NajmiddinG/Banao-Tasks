@@ -1,0 +1,60 @@
+	<ul class="messages">
+		{% for message in messages %}
+		{% if "success" == message.tags %}
+			<div class="alerttt success">
+				<span class="closebtn">×</span>  
+				{{ message }}
+			</div>
+		{% else %}
+			<div class="alerttt danger">
+				<span class="closebtn">×</span>  
+				{{ message }}
+			</div>
+		{% endif %}
+		</div>
+		{% endfor %}
+	</ul>
+	<style>
+		.alerttt {
+			padding: 20px;
+			color: white;
+			opacity: 0.83;
+			transition: opacity 0.6s;
+			margin-bottom: 15px;
+            border-radius: 5px;
+		}
+		.alerttt.success {
+			background-color: #04AA6D;
+		}
+        .alerttt.danger {
+            background-color: #ff445c;
+        }
+		.alerttt {
+		opacity: 1;
+		transition: opacity 0.6s;
+		}
+		.closebtn {
+			margin-left: 15px;
+			color: white;
+			font-weight: bold;
+			float: right;
+			font-size: 22px;
+			line-height: 20px;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+		.closebtn:hover {
+			color: black;
+		}
+	</style>
+	<script>
+        var close = document.getElementsByClassName("closebtn");
+        var i;
+        for (i = 0; i < close.length; i++) {
+        close[i].onclick = function(){
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function(){ div.style.display = "none"; }, 600);
+        }
+        }
+    </script>
