@@ -1,0 +1,67 @@
+Django Task 2
+
+
+Description: Integrate a blog system within the application 
+created in the previous task. The doctors can upload new blog 
+posts and the patients can view them. 
+ 
+Details:
+Create any 4 categories eg. Mental Health, Heart Disease, 
+Covid19, Immunization etc. 
+Allow the doctor user to create new blog posts. 
+The upload form should have the following fields:
+Title
+Image
+Category
+Summary
+Content
+The blog writer can mark a blog as a draft, while uploading. 
+The doctors can see the posts uploaded by them.
+The patient user should see lists of all the blog posts 
+uploaded and not marked as draft, category wise.
+Each item in the list should contain 
+title of the post 
+image of the post
+the summary with the world limit to 15. If in case 
+the summary is longer than the given word limit, truncate 
+the summary to 15 words and append ‘...’ at the end.
+ 
+Technical Requirements:
+You can use any javascript library or framework
+Use MySQL as the database 
+All The Best!
+
+
+
+Django vazifasi 2
+
+
+Tavsif: Ilova ichida blog tizimini integratsiyalash
+oldingi vazifada yaratilgan. Shifokorlar yangi blogni yuklashlari mumkin
+postlar va bemorlar ularni ko'rishlari mumkin.
+ 
+Tafsilotlar:
+Har qanday 4 toifani yarating, masalan. Ruhiy salomatlik, yurak kasalliklari,
+Covid19, emlash va boshqalar.
+Doktor foydalanuvchiga yangi blog postlarini yaratishga ruxsat bering.
+Yuklash formasida quyidagi maydonlar bo'lishi kerak:
+Sarlavha
+Rasm
+Turkum
+Xulosa
+Tarkib
+Blog muallifi yuklash vaqtida blogni qoralama sifatida belgilashi mumkin.
+Shifokorlar ular tomonidan yuklangan postlarni ko'rishlari mumkin.
+Bemor foydalanuvchi barcha blog postlari ro'yxatini ko'rishi kerak
+yuklangan va qoralama sifatida belgilanmagan, toifaga qarab.
+Ro'yxatdagi har bir element bo'lishi kerak
+postning sarlavhasi
+postning tasviri
+dunyo chegarasi bilan xulosa 15. Agar bo'lsa
+xulosa berilgan so'z chegarasidan uzunroq, kesish
+Xulosa 15 so'zdan iborat bo'lib, oxiriga "..." qo'shing.
+ 
+Texnik talablar:
+Siz har qanday javascript kutubxonasi yoki ramkasidan foydalanishingiz mumkin
+Ma'lumotlar bazasi sifatida MySQL dan foydalaning
+Barcha ezgu tilaklarni tilayman!

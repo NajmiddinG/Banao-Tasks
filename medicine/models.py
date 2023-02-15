@@ -46,3 +46,26 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'username'
 
+
+class Categories(models.Model):
+    name = models.CharField(verbose_name="Category name", max_length=255)
+    date = models.DateTimeField(verbose_name="Auto created date", auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Blog(models.Model):
+    created = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Created user")
+    title = models.CharField(verbose_name="Title", max_length=255)
+    image = models.ImageField(verbose_name='Image', upload_to='Posts/', editable=True)
+    category = models.ForeignKey(Categories, on_delete=models.CASCADE, verbose_name="categories")
+    summary = models.CharField(verbose_name='Summary', max_length=255)
+    content = models.TextField(verbose_name="Content", max_length=1000)
+    drafted = models.BooleanField(default=False, verbose_name='Draft')
+    views = models.PositiveIntegerField(verbose_name="Views", default=0, blank=True, null=True)
+    date = models.DateTimeField(verbose_name="Auto created date", auto_now_add=True)
+
+
+    def __str__(self):
+        return self.title

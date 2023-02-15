@@ -1,4 +1,5 @@
 {% load static %}
+{% load my_functions %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,21 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body style="background-color: #ff4363; color: yellow;">
-    {% if messages %} {% include 'message.html' %} {% endif %}
-    <br><br>
-    <p style="font-size: 40px;">Hello {{ user.first_name }}</p> <br>
-    <img src="{{ MEDIA_URL }}{{ user.picture.url }}" style="border-radius: 10px" height="250px" alt="{{ user }}'s image">
-    <ul style="font-size: 20px; list-style-type: none;">
-        <li>First name: {{ user.first_name }}</li>
-        <li>Last name: {{ user.last_name }}</li>
-        <li>Username: {{ user.username }}</li>
-        <li>Email: {{ user.email }}</li>
-        <li>Address: {{ user.address }}</li>
-        <li>Type: {{ user.get_type_display }}</li>
-        <li>For logout: <a href="{% url 'logout' %}" style="color: yellow; font-size: 20px">click here</a></li>
-    </ul>
+<body>
+    <center>
+    <h1 class="mt-5 mx-auto">{{ user.get_type_display }} {{ user.first_name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="{{ MEDIA_URL }}{{ user.picture.url }}" class="rounded-circle" width="50" alt="{{ user.first_name }}"></h1>
+    </center>
+    <div class="w-25 mt-5 mx-auto">{% if messages %} {% include 'message.html' %} {% endif %}</div>
+    
+    </div>
+    {% if user.type == "D" %}
+    <div class="w-100 p-3 col d-flex justify-content-center mt-5">
+    <a href="{% url 'create' %}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Create post</a>
+    </div>
+    {% endif %} 
+    <div class="col d-flex justify-content-center mt-5">
+    {% if posts %}
+    <div class="cards">
+        {% for post in posts %}
+            <div class="card mb-5" style="max-width: 50rem;">
+                <img class="card-img-top" src="{{ MEIDA_URL }}{{ post.image.url }}" alt="Post image">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Title: </strong> {{ post.title }}</h5>
+                    <p class="card-text"><strong>Summary: </strong> {{ post.summary | trunc }}</p>
+                    <p class="card-text"><strong>Category: </strong> {{ post.category }}</p>
+                    <p class="card-text"><strong>Drafted: </strong> {{ post.drafted }}</p>
+                    <p class="card-text"><strong>Created by: </strong> {{ post.created }}</p>
+                    {% if post.created.id == user.id %}
+                        <a href="{% url 'edit' id=post.id %}" class="btn btn-info" role="button" aria-pressed="true">Edit</a>
+                        <a href="{% url 'delete' id=post.id %}" class="btn btn-danger" role="button" aria-pressed="true">Delete</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    </div>
+    <center><a href="{% url 'logout' %}" class="btn btn-outline-danger" role="button" aria-pressed="true">Logout</a></center>
 </body>
 </html>

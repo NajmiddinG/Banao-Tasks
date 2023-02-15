@@ -41,12 +41,16 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
 )
 WSGI_APPLICATION = 'Banao_task_1.wsgi.application'
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+DATABASES = {  
+    'default': {  
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'medicine',  
+        'USER': 'root',  
+        'PASSWORD': '1221',  
+        'HOST': '127.0.0.1',  
+        'PORT': '3306',  
+    }  
+}  
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
