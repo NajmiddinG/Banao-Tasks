@@ -30,38 +30,3 @@ Technical Requirements:
 You can use any javascript library or framework
 Use MySQL as the database 
 All The Best!
-
-
-
-Django vazifasi 2
-
-
-Tavsif: Ilova ichida blog tizimini integratsiyalash
-oldingi vazifada yaratilgan. Shifokorlar yangi blogni yuklashlari mumkin
-postlar va bemorlar ularni ko'rishlari mumkin.
- 
-Tafsilotlar:
-Har qanday 4 toifani yarating, masalan. Ruhiy salomatlik, yurak kasalliklari,
-Covid19, emlash va boshqalar.
-Doktor foydalanuvchiga yangi blog postlarini yaratishga ruxsat bering.
-Yuklash formasida quyidagi maydonlar bo'lishi kerak:
-Sarlavha
-Rasm
-Turkum
-Xulosa
-Tarkib
-Blog muallifi yuklash vaqtida blogni qoralama sifatida belgilashi mumkin.
-Shifokorlar ular tomonidan yuklangan postlarni ko'rishlari mumkin.
-Bemor foydalanuvchi barcha blog postlari ro'yxatini ko'rishi kerak
-yuklangan va qoralama sifatida belgilanmagan, toifaga qarab.
-Ro'yxatdagi har bir element bo'lishi kerak
-postning sarlavhasi
-postning tasviri
-dunyo chegarasi bilan xulosa 15. Agar bo'lsa
-xulosa berilgan so'z chegarasidan uzunroq, kesish
-Xulosa 15 so'zdan iborat bo'lib, oxiriga "..." qo'shing.
- 
-Texnik talablar:
-Siz har qanday javascript kutubxonasi yoki ramkasidan foydalanishingiz mumkin
-Ma'lumotlar bazasi sifatida MySQL dan foydalaning
-Barcha ezgu tilaklarni tilayman!
